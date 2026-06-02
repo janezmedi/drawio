@@ -65,6 +65,20 @@
         <mxCell id="0ZwaVHqf_S3xIPXRMOtP-21" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Snowflake" vertex="1">
           <mxGeometry height="30" width="60" x="-151" y="148" as="geometry" />
         </mxCell>
+        <mxCell id="0ZwaVHqf_S3xIPXRMOtP-23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="HBD_EE&lt;div&gt;REPORTS&lt;/div&gt;&lt;div&gt;HBD_WELL_BEING_LAB_RESULTS_VIEW_FULL&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="290" x="200" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0ZwaVHqf_S3xIPXRMOtP-24" edge="1" parent="1" source="0ZwaVHqf_S3xIPXRMOtP-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.536;entryY=-0.002;entryDx=0;entryDy=0;entryPerimeter=0;" target="0ZwaVHqf_S3xIPXRMOtP-23">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-121" y="30" />
+              <mxPoint x="355" y="30" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0ZwaVHqf_S3xIPXRMOtP-25" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="View" vertex="1">
+          <mxGeometry height="30" width="60" x="90" y="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
