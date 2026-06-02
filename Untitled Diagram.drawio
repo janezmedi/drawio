@@ -100,7 +100,7 @@
           <mxGeometry height="30" width="60" x="-151" y="623" as="geometry" />
         </mxCell>
         <mxCell id="0ZwaVHqf_S3xIPXRMOtP-31" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="/sites/EDS-MedicalRecordsRequested/Well being/" vertex="1">
-          <mxGeometry height="30" width="270" x="-256" y="670" as="geometry" />
+          <mxGeometry height="30" width="270" x="-51" y="580" as="geometry" />
         </mxCell>
         <mxCell id="0ZwaVHqf_S3xIPXRMOtP-34" edge="1" parent="1" source="0ZwaVHqf_S3xIPXRMOtP-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.005;entryY=0.498;entryDx=0;entryDy=0;entryPerimeter=0;flowAnimation=1;" target="0ZwaVHqf_S3xIPXRMOtP-4">
           <mxGeometry relative="1" as="geometry">
