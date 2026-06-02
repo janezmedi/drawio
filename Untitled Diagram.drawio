@@ -59,6 +59,14 @@
         <mxCell id="0ZwaVHqf_S3xIPXRMOtP-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Lambda&#39;s" vertex="1">
           <mxGeometry height="30" width="60" x="34.5" y="400" as="geometry" />
         </mxCell>
+        <mxCell id="0fAn4TrWyHGGpbafbVvz-1" edge="1" parent="1" source="0ZwaVHqf_S3xIPXRMOtP-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;flowAnimation=1;" target="0ZwaVHqf_S3xIPXRMOtP-23">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-121" y="30" />
+              <mxPoint x="355" y="30" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="0ZwaVHqf_S3xIPXRMOtP-18" parent="1" style="shape=mxgraph.signs.nature.snowflake;html=1;pointerEvents=1;fillColor=#1ba1e2;strokeColor=#006EAF;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#ffffff;" value="" vertex="1">
           <mxGeometry height="98" width="87" x="-164.5" y="50" as="geometry" />
         </mxCell>
@@ -80,15 +88,7 @@
           <mxGeometry height="30" width="60" x="-151" y="148" as="geometry" />
         </mxCell>
         <mxCell id="0ZwaVHqf_S3xIPXRMOtP-23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="HBD_EE&lt;div&gt;REPORTS&lt;/div&gt;&lt;div&gt;HBD_WELL_BEING_LAB_RESULTS_VIEW_FULL&lt;/div&gt;" vertex="1">
-          <mxGeometry height="70" width="290" x="200" y="50" as="geometry" />
-        </mxCell>
-        <mxCell id="0ZwaVHqf_S3xIPXRMOtP-24" edge="1" parent="1" source="0ZwaVHqf_S3xIPXRMOtP-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.536;entryY=-0.002;entryDx=0;entryDy=0;entryPerimeter=0;flowAnimation=1;" target="0ZwaVHqf_S3xIPXRMOtP-23">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="-121" y="30" />
-              <mxPoint x="355" y="30" />
-            </Array>
-          </mxGeometry>
+          <mxGeometry height="70" width="290" x="210" y="64" as="geometry" />
         </mxCell>
         <mxCell id="0ZwaVHqf_S3xIPXRMOtP-25" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#3700CC;fillColor=#6a00ff;align=center;verticalAlign=middle;rounded=0;fontColor=#ffffff;" value="View" vertex="1">
           <mxGeometry height="30" width="60" x="90" y="30" as="geometry" />
