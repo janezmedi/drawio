@@ -15,6 +15,14 @@
         <mxCell id="0ZwaVHqf_S3xIPXRMOtP-5" edge="1" parent="1" source="0ZwaVHqf_S3xIPXRMOtP-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="0ZwaVHqf_S3xIPXRMOtP-3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="0ZwaVHqf_S3xIPXRMOtP-29" edge="1" parent="1" source="0ZwaVHqf_S3xIPXRMOtP-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="0ZwaVHqf_S3xIPXRMOtP-26">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-220" y="380" />
+              <mxPoint x="-220" y="590" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="0ZwaVHqf_S3xIPXRMOtP-4" parent="1" style="points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.batchcompute;" value="" vertex="1">
           <mxGeometry height="70" width="68.25" x="-360" y="330" as="geometry" />
         </mxCell>
@@ -23,6 +31,15 @@
         </mxCell>
         <mxCell id="0ZwaVHqf_S3xIPXRMOtP-8" parent="1" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.lambda_function;fillColor=#F58534;gradientColor=none;" value="" vertex="1">
           <mxGeometry height="72" width="69" x="40" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="0ZwaVHqf_S3xIPXRMOtP-28" edge="1" parent="1" source="0ZwaVHqf_S3xIPXRMOtP-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="0ZwaVHqf_S3xIPXRMOtP-26">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="180" y="326" />
+              <mxPoint x="180" y="530" />
+              <mxPoint x="-121" y="530" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="0ZwaVHqf_S3xIPXRMOtP-9" parent="1" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.lambda_function;fillColor=#F58534;gradientColor=none;" value="" vertex="1">
           <mxGeometry height="72" width="69" x="50" y="290" as="geometry" />
@@ -78,6 +95,12 @@
         </mxCell>
         <mxCell id="0ZwaVHqf_S3xIPXRMOtP-25" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="View" vertex="1">
           <mxGeometry height="30" width="60" x="90" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0ZwaVHqf_S3xIPXRMOtP-26" parent="1" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;outlineConnect=0;verticalAlign=top;align=center;shape=mxgraph.office.clouds.cloud_sharepoint;" value="" vertex="1">
+          <mxGeometry height="61" width="101" x="-171.5" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="0ZwaVHqf_S3xIPXRMOtP-30" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="MS SharePoint" vertex="1">
+          <mxGeometry height="30" width="60" x="-151" y="623" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
