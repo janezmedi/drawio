@@ -1,9 +1,204 @@
-<mxfile host="app.diagrams.net">
-  <diagram name="Page-1" id="MYH49ha-OY6QzdnOzlM7">
-    <mxGraphModel dx="2054" dy="793" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+<mxfile host="app.diagrams.net" agent="Claude Code">
+  <diagram id="caregaps-architecture" name="Care Gaps Processing">
+    <mxGraphModel dx="2054" dy="793" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=24;fontStyle=1;align=center;verticalAlign=middle;fontColor=#232F3E;" value="Care Gaps Processing System — AWS Architecture" vertex="1">
+          <mxGeometry height="40" width="900" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=1;fontSize=13;align=left;verticalAlign=middle;fontColor=#545B64;" value="Two pipelines: (1) Scheduled batch reconciliation against Snowflake&#xa;(2) Real-time closure from Elation webhooks" vertex="1">
+          <mxGeometry height="36" width="900" x="40" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F3F3;strokeColor=#879196;dashed=1;verticalAlign=top;fontStyle=1;fontColor=#545B64;fontSize=13;" value="External Systems" vertex="1">
+          <mxGeometry height="640" width="240" x="40" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="snowflake" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#29b5e8;fontSize=12;verticalAlign=middle;" value="Snowflake DW&#xa;MEDICI_DW.REPORTS&#xa;~33 CARE_GAP_* views" vertex="1">
+          <mxGeometry height="70" width="180" x="70" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="elation" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;verticalAlign=middle;align=left;spacingLeft=10;" value="Elation Health&#xa;• OAuth2 token&#xa;• CareGaps REST API&#xa;• Webhooks (Ed25519)" vertex="1">
+          <mxGeometry height="100" width="180" x="70" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="caregapsapi" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;verticalAlign=middle;align=left;spacingLeft=10;" value="CareGaps API&#xa;/caregaps/api/{program}/caregap/&#xa;GET · POST (create) · PATCH (close)" vertex="1">
+          <mxGeometry height="90" width="180" x="70" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="secrets" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;verticalAlign=middle;" value="AWS Secrets Manager&#xa;batch/{env}/caregaps-processing" vertex="1">
+          <mxGeometry height="70" width="180" x="70" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="cloudwatch" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;verticalAlign=middle;" value="Amazon CloudWatch Logs&#xa;(run_id correlated)" vertex="1">
+          <mxGeometry height="60" width="180" x="70" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="flow1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#d6b656;verticalAlign=top;fontStyle=1;fontColor=#7f6000;fontSize=14;" value="Pipeline 1 — Scheduled Batch Reconciliation  (batch/main.py)" vertex="1">
+          <mxGeometry height="300" width="1340" x="320" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="stepfn" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6D0F5;strokeColor=#9933cc;fontSize=12;verticalAlign=middle;" value="AWS Step Functions&#xa;State Machine&#xa;(scheduled trigger)" vertex="1">
+          <mxGeometry height="90" width="160" x="350" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="batch" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4B8;strokeColor=#d79b00;fontSize=11;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontStyle=1" value="AWS Batch on Fargate&#xa;caregaps-processing job&#xa;(Docker image from ECR)&#xa;&#xa;main.py:&#xa;• Load secrets &amp; Elation token&#xa;• Query Snowflake views (10 threads)&#xa;• Diff vs existing care gaps&#xa;• Compute CREATE / CLOSE&#xa;• Chunk &amp; send to SQS" vertex="1">
+          <mxGeometry height="200" width="240" x="560" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="sqs" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6B8E6;strokeColor=#cc33cc;fontSize=11;verticalAlign=middle;align=left;spacingLeft=10;" value="Amazon SQS (FIFO)&#xa;caregaps queue&#xa;• chunks of ≤250 records&#xa;• MD5 dedup id&#xa;• MessageGroupId=caregaps" vertex="1">
+          <mxGeometry height="130" width="220" x="860" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="lambda-sqs" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCD9A8;strokeColor=#d79b00;fontSize=11;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontStyle=1" value="Lambda: caregaps-sqs-processing&#xa;function.py&#xa;&#xa;• Reads SQS records (10 workers)&#xa;• action=CREATE → POST caregap&#xa;• action=CLOSE → find open + PATCH&#xa;• Idempotent (409 = already exists)" vertex="1">
+          <mxGeometry height="150" width="260" x="1140" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="def-note" parent="1" style="text;html=1;whiteSpace=wrap;fontSize=10;fontColor=#7f6000;align=left;verticalAlign=top;" value="A care gap is CREATEd when present in Snowflake (DUE) and absent in the API; CLOSEd when open in the API but no longer DUE in Snowflake. Closed gaps are never reopened." vertex="1">
+          <mxGeometry height="130" width="210" x="1430" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="flow2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#82b366;verticalAlign=top;fontStyle=1;fontColor=#274e13;fontSize=14;" value="Pipeline 2 — Real-time Webhook Sync  (lambdas/caregaps-sync/function.py)" vertex="1">
+          <mxGeometry height="310" width="1340" x="320" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="apigw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6D0F5;strokeColor=#9933cc;fontSize=12;verticalAlign=middle;" value="Amazon API Gateway&#xa;POST webhook endpoint" vertex="1">
+          <mxGeometry height="90" width="160" x="350" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="lambda-sync" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCD9A8;strokeColor=#d79b00;fontSize=11;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontStyle=1" value="Lambda: caregaps-sync&#xa;function.py&#xa;&#xa;• Verify Ed25519 signature&#xa;  (El8-Ed25519-Signature)&#xa;• Route Elation envelope by resource&#xa;• On matching evidence → close care gap" vertex="1">
+          <mxGeometry height="190" width="260" x="560" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="handlers" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DFF0D8;strokeColor=#82b366;verticalAlign=top;fontStyle=1;fontSize=11;fontColor=#274e13;" value="Webhook Handlers (by resource)" vertex="1">
+          <mxGeometry height="220" width="380" x="880" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="h-reports" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=left;spacingLeft=8;" value="reports → HbA1c, Kidney (uACR),&#xa;Anxiety (GAD), Depression (PHQ)" vertex="1">
+          <mxGeometry height="40" width="340" x="900" y="535" as="geometry" />
+        </mxCell>
+        <mxCell id="h-meds" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=left;spacingLeft=8;" value="medications → Statin Therapy for&#xa;Patients with Diabetes" vertex="1">
+          <mxGeometry height="40" width="340" x="900" y="585" as="geometry" />
+        </mxCell>
+        <mxCell id="h-hist" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=left;spacingLeft=8;" value="histories → Anxiety (GAD) /&#xa;Depression (PHQ) screening" vertex="1">
+          <mxGeometry height="40" width="340" x="900" y="635" as="geometry" />
+        </mxCell>
+        <mxCell id="h-vitals" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=left;spacingLeft=8;" value="vitals → BP Control (systolic&lt;140 &amp; diastolic&lt;90)" vertex="1">
+          <mxGeometry height="28" width="340" x="900" y="685" as="geometry" />
+        </mxCell>
+        <mxCell id="sync-note" parent="1" style="text;html=1;whiteSpace=wrap;fontSize=10;fontColor=#274e13;align=left;verticalAlign=top;" value="Closes a matching OPEN care gap via the CareGaps API (PATCH status=closed) as soon as Elation reports the qualifying clinical evidence." vertex="1">
+          <mxGeometry height="120" width="350" x="1290" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="cicd" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#607D8B;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#37474F;" value="CI/CD — GitHub Actions (.github/workflows)" vertex="1">
+          <mxGeometry height="120" width="1340" x="320" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="branches" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CFD8DC;strokeColor=#607D8B;fontSize=11;verticalAlign=middle;" value="branches: nonprod / staging / prod&#xa;(branch-protection &amp; validation)" vertex="1">
+          <mxGeometry height="60" width="220" x="350" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="ecr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CFD8DC;strokeColor=#607D8B;fontSize=11;verticalAlign=middle;" value="Build Docker images → push to Amazon ECR" vertex="1">
+          <mxGeometry height="60" width="280" x="620" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="deploy" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CFD8DC;strokeColor=#607D8B;fontSize=11;verticalAlign=middle;align=left;spacingLeft=10;" value="Deploy: Batch job def + Step Functions update&#xa;Update Lambda function code (sqs-processing, sync)" vertex="1">
+          <mxGeometry height="60" width="360" x="950" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="stepfn" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7f6000;strokeWidth=2;endArrow=block;" target="batch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1l" connectable="0" parent="e1" style="edgeLabel;html=1;fontSize=10;fontColor=#7f6000;" value="trigger job" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="batch" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7f6000;strokeWidth=2;endArrow=block;" target="sqs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2l" connectable="0" parent="e2" style="edgeLabel;html=1;fontSize=10;fontColor=#7f6000;" value="send chunks&#xa;(CREATE/CLOSE)" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="sqs" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7f6000;strokeWidth=2;endArrow=block;" target="lambda-sqs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3l" connectable="0" parent="e3" style="edgeLabel;html=1;fontSize=10;fontColor=#7f6000;" value="event source&#xa;mapping" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="snowflake" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#29b5e8;strokeWidth=2;endArrow=block;startArrow=none;exitX=1;exitY=0.2;entryX=0;entryY=0.5;" target="batch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4l" connectable="0" parent="e4" style="edgeLabel;html=1;fontSize=10;fontColor=#29b5e8;" value="SELECT DUE rows" vertex="1">
+          <mxGeometry relative="1" x="-0.2" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="caregapsapi" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#82b366;strokeWidth=1.5;endArrow=block;startArrow=block;dashed=1;exitX=1;exitY=0.5;entryX=0;entryY=0.95;" target="batch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5l" connectable="0" parent="e5" style="edgeLabel;html=1;fontSize=10;fontColor=#82b366;" value="GET existing gaps" vertex="1">
+          <mxGeometry relative="1" x="-0.3" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="lambda-sqs" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#82b366;strokeWidth=2;endArrow=block;exitX=0;exitY=1;entryX=1;entryY=0;" target="caregapsapi">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1270" y="760" />
+              <mxPoint x="260" y="760" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6l" connectable="0" parent="e6" style="edgeLabel;html=1;fontSize=10;fontColor=#82b366;" value="POST create / PATCH close" vertex="1">
+          <mxGeometry relative="1" x="-0.6" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="elation" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#274e13;strokeWidth=2;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="apigw">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="605" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7l" connectable="0" parent="e7" style="edgeLabel;html=1;fontSize=10;fontColor=#274e13;" value="webhook POST&#xa;(signed)" vertex="1">
+          <mxGeometry relative="1" x="-0.2" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="apigw" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#274e13;strokeWidth=2;endArrow=block;" target="lambda-sync">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="lambda-sync" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#274e13;strokeWidth=2;endArrow=block;" target="handlers">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9l" connectable="0" parent="e9" style="edgeLabel;html=1;fontSize=10;fontColor=#274e13;" value="dispatch" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="lambda-sync" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#82b366;strokeWidth=1.5;endArrow=block;startArrow=block;dashed=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" target="caregapsapi">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="585" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10l" connectable="0" parent="e10" style="edgeLabel;html=1;fontSize=10;fontColor=#82b366;" value="find &amp; PATCH close gap" vertex="1">
+          <mxGeometry relative="1" x="-0.4" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="elation" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#82b366;strokeWidth=1.5;endArrow=block;dashed=1;exitX=0.5;exitY=1;entryX=0.4;entryY=0;" target="lambda-sync">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="730" />
+              <mxPoint x="664" y="730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11l" connectable="0" parent="e11" style="edgeLabel;html=1;fontSize=10;fontColor=#82b366;" value="OAuth token + signing_pub_key" vertex="1">
+          <mxGeometry relative="1" x="-0.5" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="secrets" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d79b00;strokeWidth=1.5;endArrow=block;dashed=1;exitX=1;exitY=0.3;entryX=0;entryY=1;" target="batch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12l" connectable="0" parent="e12" style="edgeLabel;html=1;fontSize=9;fontColor=#d79b00;" value="get secrets" vertex="1">
+          <mxGeometry relative="1" x="-0.2" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="secrets" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d79b00;strokeWidth=1.5;endArrow=block;dashed=1;exitX=1;exitY=0.5;entryX=0;entryY=0.6;" target="lambda-sync">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="branches" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#607D8B;strokeWidth=1.5;endArrow=block;" target="ecr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="ecr" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#607D8B;strokeWidth=1.5;endArrow=block;" target="deploy">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#879196;verticalAlign=top;fontStyle=1;fontSize=12;align=left;spacingLeft=8;spacingTop=4;" value="Legend" vertex="1">
+          <mxGeometry height="120" width="240" x="40" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="lg1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCD9A8;strokeColor=#d79b00;fontSize=10;" value="Compute (Batch / Lambda)" vertex="1">
+          <mxGeometry height="24" width="100" x="52" y="828" as="geometry" />
+        </mxCell>
+        <mxCell id="lg2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6B8E6;strokeColor=#cc33cc;fontSize=10;" value="Messaging / Orchestration" vertex="1">
+          <mxGeometry height="24" width="108" x="160" y="828" as="geometry" />
+        </mxCell>
+        <mxCell id="lg3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" value="External / Data" vertex="1">
+          <mxGeometry height="24" width="100" x="52" y="858" as="geometry" />
+        </mxCell>
+        <mxCell id="lg4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" value="Support (Secrets/Logs)" vertex="1">
+          <mxGeometry height="24" width="108" x="160" y="858" as="geometry" />
+        </mxCell>
+        <mxCell id="lg5" parent="1" style="text;html=1;fontSize=9;fontColor=#545B64;align=left;" value="— solid: data flow      – – dashed: auth / read / support" vertex="1">
+          <mxGeometry height="24" width="220" x="52" y="888" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
