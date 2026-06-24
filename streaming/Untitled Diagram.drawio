@@ -30,13 +30,13 @@
           <mxGeometry height="60" width="120" x="640" y="240" as="geometry" />
         </mxCell>
         <mxCell id="T_EmKLwdggb4GeWFZ8om-6" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Actor" vertex="1">
-          <mxGeometry height="60" width="30" x="770" y="240" as="geometry" />
+          <mxGeometry height="60" width="30" x="780" y="240" as="geometry" />
         </mxCell>
         <mxCell id="T_EmKLwdggb4GeWFZ8om-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
           <mxGeometry height="30" width="20" x="690" y="300" as="geometry" />
         </mxCell>
         <mxCell id="T_EmKLwdggb4GeWFZ8om-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="virtual-out" vertex="1">
-          <mxGeometry height="30" width="60" x="-140" y="190" as="geometry" />
+          <mxGeometry height="30" width="60" x="-70" y="200" as="geometry" />
         </mxCell>
         <mxCell id="T_EmKLwdggb4GeWFZ8om-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="parlante" vertex="1">
           <mxGeometry height="30" width="60" x="570" y="270" as="geometry" />
