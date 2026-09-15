@@ -1,9 +1,107 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="HoUZHV6mw-zipaKuXKfl">
-    <mxGraphModel>
+    <mxGraphModel dx="673" dy="392" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="Rl1y454ElAxmmScd52JP-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=20;fontStyle=1" value="Request" vertex="1">
+          <mxGeometry height="30" width="100" x="29" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-7" parent="1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=4;spacingRight=4;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="14" width="20" x="360" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-8" parent="1" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#DF8C42;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam2.microsoft_teams;fontSize=14;" value="Teams" vertex="1">
+          <mxGeometry height="78" width="78" x="40" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-18" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;flowAnimation=1;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="268" y="140" as="sourcePoint" />
+            <mxPoint x="335" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-19" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;startArrow=none;startFill=0;flowAnimation=1;fontSize=14;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="118" y="140" as="sourcePoint" />
+            <mxPoint x="190" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-44" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;flowAnimation=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="170" as="sourcePoint" />
+            <mxPoint x="118" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-9" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=14;image=img/lib/azure2/ai_machine_learning/Bot_Services.svg;" value="Azure Bot&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="78" width="78" x="190" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-10" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=14;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="Lambda Function&lt;div&gt;eligibility-teams-ingress&lt;/div&gt;" vertex="1">
+          <mxGeometry height="78" width="78" x="335" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-21" edge="1" parent="1" source="Rl1y454ElAxmmScd52JP-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;flowAnimation=1;fontSize=14;" target="Rl1y454ElAxmmScd52JP-12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="592" y="159.03" />
+              <mxPoint x="592" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-11" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=14;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.sqs;" value="SQS" vertex="1">
+          <mxGeometry height="78" width="78" x="470" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-43" edge="1" parent="1" source="Rl1y454ElAxmmScd52JP-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;exitPerimeter=0;flowAnimation=1;" target="Rl1y454ElAxmmScd52JP-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="256.51" />
+              <mxPoint x="580" y="320" />
+              <mxPoint x="230" y="320" />
+            </Array>
+            <mxPoint x="230" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-12" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=14;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="Lambda Function&lt;div&gt;eligibility-teams-worker&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="78" width="78" x="626" y="198" as="geometry" />
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-13" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=14;image=img/lib/azure2/compute/Azure_Spring_Cloud.svg;fontColor=light-dark(#000000,#BDC7D4);" value="Eligibility Backend" vertex="1">
+          <mxGeometry height="78" width="78" x="900" y="198" as="geometry" />
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-14" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#01A88D;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=14;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.bedrock;" value="AWS Bedrock&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="78" width="78" x="1070" y="198" as="geometry" />
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-20" edge="1" parent="1" source="Rl1y454ElAxmmScd52JP-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;flowAnimation=1;fontSize=14;" target="Rl1y454ElAxmmScd52JP-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-34" parent="1" style="text;whiteSpace=wrap;fontStyle=0;fontSize=14;" value="Azure Bot waits ~15s for HTTP 200 on POST /api/messages&#xa;&#xa;Bedrock + Eligibility take longer than that. eligibility-teams-ingress lambda must ack and return. &#xa;&#xa;A Lambda dies when it returns, so it cannot keep working in the background like a long-lived Node process. The long work has to be a second invocation" vertex="1">
+          <mxGeometry height="110" width="600" x="40" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-36" parent="1" style="text;whiteSpace=wrap;fontStyle=1;fontSize=20;fontColor=light-dark(#000000,#FFFF33);" value="Why two Lambdas" vertex="1">
+          <mxGeometry height="40" width="180" x="40" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-39" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=12;fontStyle=0" value="&lt;b&gt;&lt;u&gt;Finish under 15s&lt;/u&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="132" x="308" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-47" edge="1" parent="1" source="Rl1y454ElAxmmScd52JP-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;flowAnimation=1;" target="Rl1y454ElAxmmScd52JP-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-49" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=12;fontStyle=0" value="&lt;b&gt;&lt;u&gt;waiting the prompt resolution&lt;/u&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="107.5" x="611.25" y="158" as="geometry" />
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-51" edge="1" parent="1" source="Rl1y454ElAxmmScd52JP-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.01;entryY=0.258;entryDx=0;entryDy=0;entryPerimeter=0;" target="Rl1y454ElAxmmScd52JP-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-52" edge="1" parent="1" source="Rl1y454ElAxmmScd52JP-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;" target="Rl1y454ElAxmmScd52JP-12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="256.5" />
+              <mxPoint x="780" y="256.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-53" edge="1" parent="1" source="Rl1y454ElAxmmScd52JP-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;" target="Rl1y454ElAxmmScd52JP-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Rl1y454ElAxmmScd52JP-54" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=12;fontStyle=0" value="&lt;b&gt;&lt;u&gt;send the prompt&lt;/u&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="107.5" x="760" y="170" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
