@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="HoUZHV6mw-zipaKuXKfl">
-    <mxGraphModel dx="1645" dy="823" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1299" dy="568" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -43,7 +43,7 @@
         <mxCell id="Rl1y454ElAxmmScd52JP-9" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=14;image=img/lib/azure2/ai_machine_learning/Bot_Services.svg;" value="Eligibility Azure Bot" vertex="1">
           <mxGeometry height="78" width="78" x="340" y="450" as="geometry" />
         </mxCell>
-        <mxCell id="Rl1y454ElAxmmScd52JP-10" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=14;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="Lambda Function&lt;div&gt;azure-bot-ingress&lt;/div&gt;" vertex="1">
+        <mxCell id="Rl1y454ElAxmmScd52JP-10" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=14;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="Lambda Function&lt;div&gt;azure-bot-gateway&lt;/div&gt;" vertex="1">
           <mxGeometry height="78" width="78" x="560" y="450" as="geometry" />
         </mxCell>
         <mxCell id="Rl1y454ElAxmmScd52JP-21" edge="1" parent="1" source="Rl1y454ElAxmmScd52JP-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;flowAnimation=1;fontSize=11;fontColor=light-dark(#000000,#B3B3B3);" target="Rl1y454ElAxmmScd52JP-12" value="&lt;i&gt;prompt&lt;/i&gt;">
@@ -56,7 +56,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="Rl1y454ElAxmmScd52JP-11" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=14;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.sqs;" value="SQS" vertex="1">
-          <mxGeometry height="78" width="78" x="730" y="450" as="geometry" />
+          <mxGeometry height="78" width="78" x="710" y="450" as="geometry" />
         </mxCell>
         <mxCell id="Rl1y454ElAxmmScd52JP-43" edge="1" parent="1" source="Rl1y454ElAxmmScd52JP-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;exitPerimeter=0;flowAnimation=1;fontStyle=2;fontColor=light-dark(#000000,#CCCCCC);" target="Rl1y454ElAxmmScd52JP-9" value="prompt response">
           <mxGeometry relative="1" as="geometry">
@@ -69,7 +69,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="Rl1y454ElAxmmScd52JP-12" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=14;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="Lambda Function&lt;div&gt;eligibility-azure-bot&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(35, 47, 62), rgb(189, 199, 212));&quot;&gt;-worker&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="78" width="78" x="940" y="528" as="geometry" />
+          <mxGeometry height="78" width="78" x="942" y="528" as="geometry" />
         </mxCell>
         <mxCell id="Rl1y454ElAxmmScd52JP-13" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=14;image=img/lib/azure2/compute/Azure_Spring_Cloud.svg;fontColor=light-dark(#000000,#BDC7D4);" value="Eligibility Backend" vertex="1">
           <mxGeometry height="78" width="78" x="1175.75" y="528" as="geometry" />
