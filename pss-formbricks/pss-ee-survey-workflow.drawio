@@ -1,26 +1,29 @@
 <mxfile host="app.diagrams.net">
   <diagram id="pss-ee" name="PSS EE survey workflow">
-    <mxGraphModel dx="1645" dy="823" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1700" math="0" shadow="0">
+    <mxGraphModel dx="1414" dy="823" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1700" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="A" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" value="EventBridge triggers every hour&lt;br&gt;Mon-Fri, 6 AM to 5 PM CT" vertex="1">
-          <mxGeometry height="60" width="260" x="300" y="20" as="geometry" />
+        <mxCell id="B" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;arcSize=0;" value="" vertex="1">
+          <mxGeometry height="250" width="660" x="270" y="100" as="geometry" />
         </mxCell>
-        <mxCell id="B" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="ee_loader runs" vertex="1">
-          <mxGeometry height="50" width="260" x="300" y="110" as="geometry" />
+        <mxCell id="C" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" value="Get today&#39;s Exam Summary and&amp;nbsp;&lt;div&gt;Concierge&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(#000000, var(--ge-light-color, #ffffff));&quot;&gt;appointments from Snowflake&lt;/span&gt;&lt;div&gt;(Mondays also include the weekend)&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="78" width="300" x="290" y="144" as="geometry" />
         </mxCell>
-        <mxCell id="C" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="Get today&#39;s Exam Summary and Concierge appointments from Snowflake&lt;br&gt;(Mondays also include the weekend)" vertex="1">
-          <mxGeometry height="70" width="260" x="300" y="190" as="geometry" />
+        <mxCell id="zmxPpVj3lH4ZofAMNxXU-9" edge="1" parent="1" source="D" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;" target="E">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="D" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="Skip appointments already tracked" vertex="1">
-          <mxGeometry height="50" width="260" x="300" y="290" as="geometry" />
+        <mxCell id="D" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" value="Skip appointments already tracked" vertex="1">
+          <mxGeometry height="50" width="230" x="650" y="158" as="geometry" />
         </mxCell>
-        <mxCell id="E" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="Save new appointments to the tracking table as PENDING" vertex="1">
-          <mxGeometry height="50" width="260" x="300" y="370" as="geometry" />
+        <mxCell id="zmxPpVj3lH4ZofAMNxXU-10" edge="1" parent="1" source="E" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;" target="F">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="F" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="Schedule a status check&lt;br&gt;1 hour after the appointment ends" vertex="1">
-          <mxGeometry height="60" width="260" x="300" y="450" as="geometry" />
+        <mxCell id="E" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" value="Save new appointments to the&amp;nbsp;&lt;div&gt;tracking table as PENDING&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="230" x="650" y="254" as="geometry" />
+        </mxCell>
+        <mxCell id="F" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" value="&lt;b&gt;Schedule&lt;/b&gt; a status check&lt;br&gt;1 hour after the appointment ends" vertex="1">
+          <mxGeometry height="60" width="230" x="315" y="249" as="geometry" />
         </mxCell>
         <mxCell id="G" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="status_checker asks Elation for the appointment status" vertex="1">
           <mxGeometry height="60" width="260" x="300" y="540" as="geometry" />
@@ -70,22 +73,7 @@
         <mxCell id="S" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" value="Update the delivery status in the tracking table" vertex="1">
           <mxGeometry height="60" width="260" x="300" y="1570" as="geometry" />
         </mxCell>
-        <mxCell id="e0" edge="1" parent="1" source="A" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;fontSize=12;" target="B" value="">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e1" edge="1" parent="1" source="B" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;fontSize=12;" target="C" value="">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="e2" edge="1" parent="1" source="C" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;fontSize=12;" target="D" value="">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e3" edge="1" parent="1" source="D" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;fontSize=12;" target="E" value="">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e4" edge="1" parent="1" source="E" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;fontSize=12;" target="F" value="">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e5" edge="1" parent="1" source="F" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;fontSize=12;" target="G" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="e6" edge="1" parent="1" source="G" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;fontSize=12;" target="H" value="">
@@ -139,6 +127,27 @@
               <mxPoint x="1020" y="570" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="zmxPpVj3lH4ZofAMNxXU-12" edge="1" parent="1" source="zmxPpVj3lH4ZofAMNxXU-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;flowAnimation=1;" target="C">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zmxPpVj3lH4ZofAMNxXU-1" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eventbridge;labelPerimeter=1;" value="&lt;div&gt;EventBridge triggers every&amp;nbsp;&lt;/div&gt;&lt;div&gt;hour,&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(35, 47, 62), rgb(189, 199, 212));&quot;&gt;Mon-Fri, 6:00 - 17:00 CT&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="78" width="78" x="60" y="171" as="geometry" />
+        </mxCell>
+        <mxCell id="zmxPpVj3lH4ZofAMNxXU-4" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="DB" vertex="1">
+          <mxGeometry height="60" width="50" x="550" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="zmxPpVj3lH4ZofAMNxXU-6" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="DB" vertex="1">
+          <mxGeometry height="60" width="50" x="860" y="234" as="geometry" />
+        </mxCell>
+        <mxCell id="zmxPpVj3lH4ZofAMNxXU-11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1" value="ps_survey_ee_loader" vertex="1">
+          <mxGeometry height="30" width="60" x="570" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="zmxPpVj3lH4ZofAMNxXU-13" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eventbridge;labelPerimeter=1;" value="&lt;div&gt;Single-use scheduler, 1 hour&amp;nbsp;&lt;/div&gt;&lt;div&gt;after&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(35, 47, 62), rgb(189, 199, 212));&quot;&gt;the end of each appointment&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="78" width="78" x="391" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="zmxPpVj3lH4ZofAMNxXU-14" edge="1" parent="1" source="F" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;defaultLabelBackgroundColor=page;labelPadding=0 4;" target="zmxPpVj3lH4ZofAMNxXU-13">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
