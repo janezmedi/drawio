@@ -1,19 +1,19 @@
 <mxfile host="app.diagrams.net">
   <diagram id="pss-ee" name="PSS EE survey workflow">
-    <mxGraphModel dx="3249" dy="1193" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1700" math="0" shadow="0">
+    <mxGraphModel dx="2904" dy="992" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1700" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="zmxPpVj3lH4ZofAMNxXU-62" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;arcSize=0;" value="" vertex="1">
-          <mxGeometry height="140" width="497.75" x="-1030" y="660" as="geometry" />
+          <mxGeometry height="120" width="497.75" x="-1030" y="680" as="geometry" />
         </mxCell>
         <mxCell id="zmxPpVj3lH4ZofAMNxXU-44" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;arcSize=0;" value="" vertex="1">
           <mxGeometry height="251" width="540" x="-1090" y="1040" as="geometry" />
         </mxCell>
-        <mxCell id="zmxPpVj3lH4ZofAMNxXU-28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;arcSize=0;" value="" vertex="1">
+        <mxCell id="zmxPpVj3lH4ZofAMNxXU-28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;fontSize=13;arcSize=0;strokeColor=#82b366;" value="" vertex="1">
           <mxGeometry height="680" width="710" x="-250" y="640" as="geometry" />
         </mxCell>
-        <mxCell id="B" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;arcSize=0;" value="" vertex="1">
+        <mxCell id="B" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;fontSize=13;arcSize=0;strokeColor=#82b366;" value="" vertex="1">
           <mxGeometry height="250" width="660" x="-250" y="120" as="geometry" />
         </mxCell>
         <mxCell id="C" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" value="Get today&#39;s Exam Summary and&amp;nbsp;&lt;div&gt;Concierge&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(#000000, var(--ge-light-color, #ffffff));&quot;&gt;appointments from Snowflake&lt;/span&gt;&lt;div&gt;(Mondays also include the weekend)&lt;/div&gt;&lt;/div&gt;" vertex="1">
@@ -199,7 +199,7 @@
           <mxGeometry height="60" width="50" x="-604.25" y="690" as="geometry" />
         </mxCell>
         <mxCell id="zmxPpVj3lH4ZofAMNxXU-65" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=18;" value="ps_survey_twilio_callback_handler" vertex="1">
-          <mxGeometry height="30" width="290" x="-926.12" y="630" as="geometry" />
+          <mxGeometry height="30" width="290" x="-926.13" y="650" as="geometry" />
         </mxCell>
         <mxCell id="zmxPpVj3lH4ZofAMNxXU-66" edge="1" parent="1" source="zmxPpVj3lH4ZofAMNxXU-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.889;entryY=0.857;entryDx=0;entryDy=0;entryPerimeter=0;defaultLabelBackgroundColor=page;labelPadding=0 4;" target="zmxPpVj3lH4ZofAMNxXU-44">
           <mxGeometry relative="1" as="geometry" />
